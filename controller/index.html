@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <script type="module" src="./src/web.js"></script>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <title>JAMS controller</title>
+  </head>
+  <body>
+    <h1>JAMS controller 🍓</h1>
+    <button id="connect-button">Connect to Board!</button>
+    <button id="disconnect-button" class="red" disabled>Disconnect from Board</button>
+
+    <div id="command-buttons">
+      <p id="controller-msg">Press any button on your controller to get started.</p>
+    </div>
+
+    <h2>Replay Path</h2>
+    <p>By pressing the button a path is bound to, the robot will enter "replay mode" and follow the recorded movements until the end is reached.</p>
+    <form>
+      <label for="filepath-X-replay">X:</label>
+      <div class="filepath-input--container">
+        <span>./paths/</span>
+        <input id="filepath-X-replay" class="filepath" />
+      </div>
+      <label for="filepath-B-replay">B:</label>
+      <div class="filepath-input--container">
+        <span>./paths/</span>
+        <input id="filepath-B-replay" class="filepath" />
+      </div>
+    </form>
+
+    <h2>Record New Path</h2>
+    <form>
+      <label for="filepath-new">File Path:</label>
+      <div class="filepath-input--container">
+        <span>./paths/</span>
+        <input id="filepath-new" class="filepath" />
+      </div>
+    </form>
+    <p>Start recording by pressing 'Y' on the controller. Every read will be saved to the specified file will be saved.</p>
+  </body>
+</html>
